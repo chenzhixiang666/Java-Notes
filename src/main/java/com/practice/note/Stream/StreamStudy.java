@@ -27,8 +27,8 @@ public class StreamStudy {
             //获取后面1000条中的前500条
             // 拿到这个参数的流的 （a * applyIdSelectSize）后面的数据  .limit（applyIdSelectSize）->后面数据的500条  .collect(Collectors.toList()->组成一个toList
             List<String> applyOrderEntities = selectOrderList.stream().skip(a * applyIdSelectSize).limit(applyIdSelectSize).collect(Collectors.toList());
-            List<String> orderByOrderIds = orderDao.getOrderByOrderIds(applyOrderEntities);
-            orders.addAll(orderByOrderIds);
+            //向数据库发请求
+//            List<String> orderByOrderIds = orderDao.getOrderByOrderIds(applyOrderEntities);
         });
 
     }
