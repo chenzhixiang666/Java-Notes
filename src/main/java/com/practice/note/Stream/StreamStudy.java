@@ -22,6 +22,7 @@ public class StreamStudy {
 
         int applyIdSelectSize = 500;
         int limit = (selectOrderList.size() + applyIdSelectSize - 1) / applyIdSelectSize;
+        //分成limit次发请求到数据库，in（）操作时   可以把多条数据分割成多组请求
         Stream.iterate(0, n -> n + 1).limit(limit).forEach(a -> {
             //获取后面1000条中的前500条
             // 拿到这个参数的流的 （a * applyIdSelectSize）后面的数据  .limit（applyIdSelectSize）->后面数据的500条  .collect(Collectors.toList()->组成一个toList
